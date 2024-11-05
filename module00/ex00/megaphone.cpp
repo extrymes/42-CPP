@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 23:23:11 by sabras            #+#    #+#             */
-/*   Updated: 2024/10/30 15:31:31 by sabras           ###   ########.fr       */
+/*   Updated: 2024/10/31 15:47:48 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ int	main(int ac, char **av)
 		std::cout << str;
 	}
 	std::cout << std::endl;
-	return (0);
+	return 0;
 }
