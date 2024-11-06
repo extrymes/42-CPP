@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:03:38 by sabras            #+#    #+#             */
-/*   Updated: 2024/10/31 15:49:04 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/06 11:41:03 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "colors.h"
 # include <iostream>
 # include <iomanip>
+# include <stdlib.h>
 
 class Contact {
 public:

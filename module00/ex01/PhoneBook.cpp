@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:21:13 by sabras            #+#    #+#             */
-/*   Updated: 2024/10/31 20:01:09 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/06 13:41:49 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void PhoneBook::searchContact(int idx) {
 	if (idx >= 0 && idx < this->_contactCount)
 		this->_contacts[idx].displayContact();
 	else
-		std::cout << RED "Index out of range" RESET << std::endl;
+		std::cerr << RED "Index out of range" RESET << std::endl;
 }
 
 int PhoneBook::getContactCount(void) {
