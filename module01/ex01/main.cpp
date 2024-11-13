@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 14:25:24 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/12 14:35:35 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/13 14:00:39 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int main(void) {
 	zombies = zombieHorde(N, "Slurpy");
 	for (int i = 0; i < N; i++)
 		zombies[i].announce();
-	delete zombies;
+	delete[] zombies;
 	return 0;
 }
