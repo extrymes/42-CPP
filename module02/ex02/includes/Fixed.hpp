@@ -6,13 +6,14 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 21:36:32 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/14 23:36:54 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/15 12:18:43 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 # include <iostream>
+# include <cmath>
 
 class Fixed {
 	public:
