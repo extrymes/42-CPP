@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 16:16:11 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/13 11:28:01 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/15 14:01:30 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int main(int ac, char **av) {
 	std::string line;
 	std::string s1 = av[2];
 	std::string s2 = av[3];
+	if (s1.empty())
+		return (print_error("Argument s1 cannot be empty"), 1);
 	while (std::getline(inputFile, line))
 	{
 		replace_occurrences(line, s1, s2);
