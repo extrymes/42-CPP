@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:11:36 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/13 21:28:47 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/15 05:18:05 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,51 +14,51 @@
 
 Fixed::Fixed(void) {
 	std::cout << "Default constructor called" << std::endl;
-	_value = 0;
+	_rawBits = 0;
 }
 
 Fixed::Fixed(const int value) {
 	std::cout << "Int constructor called" << std::endl;
-	_value = value << _nbFracBits;
+	_rawBits = value << _nbFracBits;
 }
 
 Fixed::Fixed(const float value) {
 	std::cout << "Float constructor called" << std::endl;
-	_value = roundf(value * (1 << _nbFracBits));
+	_rawBits = roundf(value * (1 << _nbFracBits));
 }
 
-Fixed::Fixed(const Fixed &fixed) {
+Fixed::Fixed(const Fixed &other) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = fixed;
-}
-
-Fixed &Fixed::operator=(const Fixed &fixed) {
-	std::cout << "Copy assignment operator called" << std::endl;
-	_value = fixed.getRawBits();
-	return *this;
-}
-
-std::ostream& operator<<(std::ostream &out, const Fixed &fixed) {
-	out << fixed.toFloat();
-	return out;
+	*this = other;
 }
 
 Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 
+Fixed &Fixed::operator=(const Fixed &other) {
+	std::cout << "Copy assignment operator called" << std::endl;
+	_rawBits = other.getRawBits();
+	return *this;
+}
+
 int Fixed::getRawBits(void) const {
-	return (_value);
+	return _rawBits;
 }
 
 void Fixed::setRawBits(int const raw) {
-	_value = raw;
+	_rawBits = raw;
 }
 
 float Fixed::toFloat(void) const {
-	return (float)(_value / (float)(1 << _nbFracBits));
+	return (float)(_rawBits / (float)(1 << _nbFracBits));
 }
 
 int Fixed::toInt(void) const {
-	return _value >> _nbFracBits;
+	return _rawBits >> _nbFracBits;
+}
+
+std::ostream& operator<<(std::ostream &out, const Fixed &fixed) {
+	out << fixed.toFloat();
+	return out;
 }

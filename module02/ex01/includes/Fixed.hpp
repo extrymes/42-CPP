@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:16:53 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/13 21:16:05 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/14 22:20:02 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ class Fixed {
 		Fixed(void);
 		Fixed(const int value);
 		Fixed(const float value);
-		Fixed(const Fixed &fixed);
-		Fixed &operator=(const Fixed &fixed);
+		Fixed(const Fixed &other);
 		~Fixed(void);
+		Fixed &operator=(const Fixed &other);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 		float toFloat(void) const;
 		int toInt(void) const;
 	private:
-		int _value;
+		int _rawBits;
 		static const int _nbFracBits = 8;
 };
 
