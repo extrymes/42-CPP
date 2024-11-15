@@ -6,11 +6,11 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 14:09:03 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/13 14:19:25 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/14 21:37:10 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "../includes/Fixed.hpp"
 
 int main(void) {
 	Fixed a;
