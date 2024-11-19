@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 21:36:26 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/15 05:23:37 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/19 15:29:53 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ Fixed::Fixed(const Fixed &other) {
 	*this = other;
 }
 
-Fixed::~Fixed(void) {}
-
 Fixed &Fixed::operator=(const Fixed &other) {
 	_rawBits = other.getRawBits();
 	return *this;
 }
+
+Fixed::~Fixed(void) {}
 
 bool Fixed::operator>(const Fixed &other) {
 	return _rawBits > other.getRawBits();
@@ -79,7 +79,7 @@ Fixed Fixed::operator*(const Fixed &other) {
 
 Fixed Fixed::operator/(const Fixed &other) {
 	Fixed res;
-	res = ((_rawBits << _nbFracBits) / other.getRawBits());
+	res.setRawBits((this->_rawBits << _nbFracBits) / other.getRawBits());
 	return res;
 }
 

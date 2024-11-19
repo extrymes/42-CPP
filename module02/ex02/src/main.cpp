@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 22:08:17 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/15 05:18:57 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/19 15:30:17 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int main(void) {
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << Fixed::max(a, b) << std::endl;
+	std::cout << Fixed(10.5f) / Fixed(2) << std::endl;
 	return 0;
 }
