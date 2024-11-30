@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:35:50 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/26 14:13:24 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 16:53:17 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@ class Dog : public Animal {
 		Dog(const Dog &other);
 		Dog &operator=(const Dog &other);
 		~Dog();
-		std::string getType() const;
 		void makeSound() const;
-		void setBrain(std::string idea);
-		void displayBrain() const;
 	private:
 		Brain *_brain;
 };

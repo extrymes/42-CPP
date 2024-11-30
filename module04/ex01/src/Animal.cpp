@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:31:15 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/27 09:13:48 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 17:01:15 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ Animal::Animal(const Animal &other) {
 
 Animal &Animal::operator=(const Animal &other) {
 	std::cout << "Animal copy assignment operator called" << std::endl;
+	if (this == &other)
+		return *this;
 	_type = other._type;
 	return *this;
 }
@@ -39,9 +41,3 @@ std::string Animal::getType() const {
 void Animal::makeSound() const {
 	std::cout << "This is default sound..." << std::endl;
 }
-
-void Animal::setBrain(std::string idea) {
-	(void)idea;
-}
-
-void Animal::displayBrain() const {}

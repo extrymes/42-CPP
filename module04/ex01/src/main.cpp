@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:08:55 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/27 09:13:40 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 16:52:33 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,12 @@ int main() {
 	delete j;
 	delete i;
 	// --- My own tests ---
-	Animal *tab[2];
-	for (int i = 0; i < 1; i++) {
+	Animal *tab[10];
+	for (int i = 0; i < 5; i++)
 		tab[i] = new Dog();
-		tab[i]->setBrain("This is an idea");
-		tab[i]->displayBrain();
-	}
-	for (int i = 1; i < 2; i++) {
+	for (int i = 5; i < 10; i++)
 		tab[i] = new Cat();
-		tab[i]->setBrain("This is another idea");
-		tab[i]->displayBrain();
-	}
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 10; i++)
 		delete tab[i];
-	Cat cat;
-	cat.setBrain("This is an idea");
-	Cat catCopy(cat);
-	catCopy.setBrain("This is another idea");
-	cat.displayBrain();
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:30:52 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/26 14:21:26 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 16:53:25 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ class Animal {
 		virtual ~Animal();
 		std::string getType() const;
 		virtual void makeSound() const;
-		virtual void setBrain(std::string idea);
-		virtual void displayBrain() const;
 	protected:
 		std::string _type;
 };
