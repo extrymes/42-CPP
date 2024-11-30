@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:34:57 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/26 10:17:42 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 16:38:58 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Cat : public Animal {
 		Cat(const Cat &other);
 		Cat &operator=(const Cat &other);
 		~Cat();
-		std::string getType() const;
 		void makeSound() const;
 };
 

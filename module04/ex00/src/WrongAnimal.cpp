@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 18:26:58 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/19 18:46:55 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 17:06:28 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ WrongAnimal::WrongAnimal(const WrongAnimal &other) {
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &other) {
 	std::cout << "WrongAnimal copy assignment operator called" << std::endl;
+	if (this == &other)
+		return *this;
 	_type = other._type;
 	return *this;
 }
@@ -36,5 +38,5 @@ std::string WrongAnimal::getType() const {
 }
 
 void WrongAnimal::makeSound() const {
-	std::cout << "Roar..." << std::endl;
+	std::cout << "This is default sound..." << std::endl;
 }
