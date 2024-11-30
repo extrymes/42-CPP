@@ -11,7 +11,7 @@ OBJS = $(SRCS:%.cpp=$(BIN_DIR)/%.o)
 
 INCLUDES = -I includes
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++ $(CFLAGS)
 
 BOLD = \033[1m

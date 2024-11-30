@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:59:51 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/29 15:00:23 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 17:13:54 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ Ice::Ice(const Ice &other) : AMateria(other) {
 
 Ice &Ice::operator=(const Ice &other) {
 	std::cout << "Ice copy assignment operator called" << std::endl;
-	if (this == &other)
-		return *this;
-	_type = other._type;
+	(void)other;
 	return *this;
 }
 

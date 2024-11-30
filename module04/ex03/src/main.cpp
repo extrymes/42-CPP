@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 09:16:50 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/30 16:11:25 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 17:59:57 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 #include "../includes/Cure.hpp"
 #include "../includes/MateriaSource.hpp"
 #include "../includes/Character.hpp"
-#include "../includes/colors.h"
 
 int main()
 {
 	{
-		std::cout << YELLOW << "--- Subject tests ---" << RESET << std::endl;
+		std::cout << "--- Subject tests ---" << std::endl;
 		IMateriaSource* src = new MateriaSource();
 		src->learnMateria(new Ice());
 		src->learnMateria(new Cure());
@@ -42,7 +41,7 @@ int main()
 		delete src;
 	}
 	{
-		std::cout << YELLOW << "--- My own tests ---" << RESET << std::endl;
+		std::cout << "--- My own tests ---" << std::endl;
 		Character me;
 		ICharacter *bob = new Character("bob");
 
