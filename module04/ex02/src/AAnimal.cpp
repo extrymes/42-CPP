@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 09:08:12 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/27 09:08:13 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 16:47:36 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ AAnimal::AAnimal(const AAnimal &other) {
 
 AAnimal &AAnimal::operator=(const AAnimal &other) {
 	std::cout << "AAnimal copy assignment operator called" << std::endl;
+	if (this == &other)
+		return *this;
 	_type = other._type;
 	return *this;
 }
@@ -35,13 +37,3 @@ AAnimal::~AAnimal() {
 std::string AAnimal::getType() const {
 	return _type;
 }
-
-void AAnimal::makeSound() const {
-	std::cout << "Roar..." << std::endl;
-}
-
-void AAnimal::setBrain(std::string idea) {
-	(void)idea;
-}
-
-void AAnimal::displayBrain() const {}

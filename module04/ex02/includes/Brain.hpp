@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:08:37 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/27 07:38:41 by sabras           ###   ########.fr       */
+/*   Updated: 2024/11/30 16:53:44 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ class Brain {
 		Brain(const Brain &other);
 		Brain &operator=(const Brain &other);
 		~Brain();
-		void setIdeas(std::string idea);
-		void displayIdeas() const;
 	private:
 		std::string _ideas[100];
 };
