@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:13:01 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/02 16:06:56 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/03 16:48:02 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Form {
 		~Form();
 		void beSigned(Bureaucrat &b);
 		std::string getName() const;
-		int getSigned() const;
+		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExec() const;
 		class GradeTooHighException : public std::exception {
@@ -39,7 +39,7 @@ class Form {
 		};
 	private:
 		const std::string _name;
-		int _signed;
+		bool _isSigned;
 		const int _gradeToSign;
 		const int _gradeToExec;
 };
