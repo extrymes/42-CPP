@@ -6,13 +6,14 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:06:55 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/03 18:56:20 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:46:17 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMY_REQUEST_FORM_HPP
 # define ROBOTOMY_REQUEST_FORM_HPP
 # include "AForm.hpp"
+# include <stdlib.h>
 
 class RobotomyRequestForm : public AForm {
 	public:

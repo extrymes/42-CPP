@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 16:58:30 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/04 00:24:05 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/04 15:56:08 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class AForm {
 		AForm(const AForm &other);
 		AForm &operator=(const AForm &other);
 		virtual ~AForm();
-		void beSigned(Bureaucrat &b);
+		void beSigned(const Bureaucrat &b);
 		void checkIsExecutable(Bureaucrat const &executor) const;
 		virtual void execute(Bureaucrat const &executor) const = 0;
 		std::string getName() const;

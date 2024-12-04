@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:08:33 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/03 23:26:36 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:47:02 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 	checkIsExecutable(executor);
-	std::ofstream file(_target + "_shrubbery");
+	std::ofstream file(std::string(_target + "_shrubbery").c_str());
 	if (!file.is_open()) {
 		std::cerr << RED "Cannot open file" RESET << std::endl;
 		return;
