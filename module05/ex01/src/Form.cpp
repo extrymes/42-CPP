@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 01:13:04 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/03 16:54:04 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/04 15:58:03 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Form::~Form() {
 	std::cout << "Form destructor called" << std::endl;
 }
 
-void Form::beSigned(Bureaucrat &b) {
+void Form::beSigned(const Bureaucrat &b) {
 	if (_gradeToSign < b.getGrade())
 		throw GradeTooLowException();
 	_isSigned = true;
