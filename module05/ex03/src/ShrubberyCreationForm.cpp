@@ -6,23 +6,23 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:08:33 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/04 00:00:49 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/04 16:25:45 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("Shrubbery Creation Form", 145, 137),
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137),
 	_target("default") {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : Form("ShrubberyCreationForm", 145, 137),
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137),
 	_target(target) {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : Form(other),
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other),
 	_target(other._target) {
 	std::cout << "ShrubberyCreationForm copy contructor called" << std::endl;
 }
@@ -31,7 +31,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	std::cout << "ShrubberyCreationForm operator assignment called" << std::endl;
 	if (this == &other)
 		return *this;
-	Form::operator=(other);
+	AForm::operator=(other);
 	_target = other._target;
 	return *this;
 }
@@ -42,7 +42,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const {
 	checkIsExecutable(executor);
-	std::ofstream file(_target + "_shrubbery");
+	std::ofstream file(std::string(_target + "_shrubbery").c_str());
 	if (!file.is_open()) {
 		std::cerr << RED "Cannot open file" RESET << std::endl;
 		return;

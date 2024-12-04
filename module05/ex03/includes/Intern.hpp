@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 23:47:16 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/04 00:05:29 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:08:45 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Intern {
 		Intern(const Intern &other);
 		Intern &operator=(const Intern &other);
 		~Intern();
-		Form *makeForm(std::string name, std::string target);
+		AForm *makeForm(std::string name, std::string target);
 };
 
 #endif

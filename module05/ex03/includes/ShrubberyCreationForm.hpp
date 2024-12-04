@@ -6,16 +6,16 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 17:06:57 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/04 00:00:30 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:09:27 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBERRY_CREATION_FORM_HPP
 # define SHRUBERRY_CREATION_FORM_HPP
-# include "Form.hpp"
+# include "AForm.hpp"
 # include <fstream>
 
-class ShrubberyCreationForm : public Form {
+class ShrubberyCreationForm : public AForm {
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string target);

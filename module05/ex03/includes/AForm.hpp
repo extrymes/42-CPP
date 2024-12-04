@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/03 23:58:59 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/04 00:21:21 by sabras           ###   ########.fr       */
+/*   Created: 2024/12/04 10:07:06 by sabras            #+#    #+#             */
+/*   Updated: 2024/12/04 15:54:01 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class Bureaucrat;
 
-class Form {
+class AForm {
 	public:
-		Form();
-		Form(std::string name, int gradeToSign, int gradeToExec);
-		Form(const Form &other);
-		Form &operator=(const Form &other);
-		virtual ~Form();
-		void beSigned(Bureaucrat &b);
+		AForm();
+		AForm(std::string name, int gradeToSign, int gradeToExec);
+		AForm(const AForm &other);
+		AForm &operator=(const AForm &other);
+		virtual ~AForm();
+		void beSigned(const Bureaucrat &b);
 		void checkIsExecutable(Bureaucrat const &executor) const;
 		virtual void execute(Bureaucrat const &executor) const = 0;
 		std::string getName() const;
@@ -39,7 +39,7 @@ class Form {
 			public:
 				virtual const char *what() const throw();
 		};
-		class FormNotSignedException : public std::exception {
+		class AFormNotSignedException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
@@ -50,6 +50,6 @@ class Form {
 		const int _gradeToExec;
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &f);
+std::ostream &operator<<(std::ostream &out, const AForm &f);
 
 #endif

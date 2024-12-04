@@ -3,7 +3,7 @@ NAME = program
 SRC_DIR = src
 BIN_DIR = bin
 
-SRC_FILES = main.cpp Bureaucrat.cpp Form.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
 SRCS = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
 
