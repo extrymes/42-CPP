@@ -6,11 +6,11 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 15:13:03 by sabras            #+#    #+#             */
-/*   Updated: 2024/10/31 20:01:02 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/05 14:53:48 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "../includes/Contact.hpp"
 
 const size_t col = 10;
 
