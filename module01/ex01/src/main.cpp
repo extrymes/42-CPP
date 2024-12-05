@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 15:01:22 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/12 16:11:49 by sabras           ###   ########.fr       */
+/*   Created: 2024/11/12 14:25:24 by sabras            #+#    #+#             */
+/*   Updated: 2024/12/05 14:57:06 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "../includes/Zombie.hpp"
 
-HumanB::HumanB(std::string name) : _name(name), _weapon(NULL) {}
+int main(void) {
+	Zombie *zombies;
+	int N = 5;
 
-void HumanB::attack(void) {
-	if (!_weapon)
-		return;
-	std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
-}
-
-void HumanB::setWeapon(Weapon &weapon) {
-	_weapon = &weapon;
+	zombies = zombieHorde(N, "Slurpy");
+	for (int i = 0; i < N; i++)
+		zombies[i].announce();
+	delete[] zombies;
+	return 0;
 }

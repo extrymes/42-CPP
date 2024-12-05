@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 14:25:24 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/13 14:00:39 by sabras           ###   ########.fr       */
+/*   Created: 2024/11/13 11:31:27 by sabras            #+#    #+#             */
+/*   Updated: 2024/12/05 15:02:21 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../includes/Harl.hpp"
 
 int main(void) {
-	Zombie *zombies;
-	int N = 5;
+	Harl harl;
 
-	zombies = zombieHorde(N, "Slurpy");
-	for (int i = 0; i < N; i++)
-		zombies[i].announce();
-	delete[] zombies;
+	harl.complain("debug");
+	harl.complain("info");
+	harl.complain("warning");
+	harl.complain("error");
 	return 0;
 }

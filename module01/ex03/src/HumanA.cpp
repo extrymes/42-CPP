@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 14:55:14 by sabras            #+#    #+#             */
-/*   Updated: 2024/11/12 16:13:51 by sabras           ###   ########.fr       */
+/*   Created: 2024/11/12 15:01:17 by sabras            #+#    #+#             */
+/*   Updated: 2024/12/05 15:03:14 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "../includes/HumanA.hpp"
 
-Weapon::Weapon(std::string type) : _type(type) {}
+HumanA::HumanA(std::string name, Weapon &weapon) : _name(name), _weapon(weapon) {}
 
-std::string Weapon::getType(void) const {
-	return _type;
-}
-
-void Weapon::setType(std::string type) {
-	_type = type;
+void HumanA::attack(void) {
+	std::cout << _name << " attacks with their " << _weapon.getType() << std::endl;
 }

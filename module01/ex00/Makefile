@@ -1,10 +1,15 @@
-NAME = brainz
+NAME = program
 
+SRC_DIR = src
 BIN_DIR = bin
 
-SRCS = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC_FILES = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+
+SRCS = $(addprefix $(SRC_DIR)/,$(SRC_FILES))
 
 OBJS = $(SRCS:%.cpp=$(BIN_DIR)/%.o)
+
+INCLUDES = -I includes
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++ $(CFLAGS)
@@ -24,7 +29,7 @@ all: $(NAME)
 $(BIN_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
 	@echo "$(CYAN)Compiling $<...$(RESET)"
-	@$(CC) -c $< -o $@
+	@$(CC) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@echo "\n$(YELLOW)Linking objects...$(RESET)"
