@@ -6,13 +6,11 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:22:50 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/05 23:53:41 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/06 14:01:48 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ScalarConverter.hpp"
-# include <iostream>
-# include <iomanip>
 
 bool isChar(std::string str) {
 	return (str.length() == 1 && std::isprint(str[0]) && !std::isdigit(str[0]));
@@ -38,19 +36,25 @@ bool isFloat(std::string str) {
 	size_t i = 0;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
-	if (i == str.size() || str.back() != 'f')
+	if (i == str.size())
 		return false;
-	bool hasDot = false;
 	bool hasDigits = false;
+	bool hasDot = false;
+	bool hasIndicator = false;
 	for (; i < str.size(); i++) {
 		if (std::isdigit(str[i]))
 			hasDigits = true;
-		else if (str[i] == '.' && !hasDot)
+		else if (str[i] == '.') {
+			if (hasDot || i == 0 || !isdigit(str[i + 1]))
+				return false;
 			hasDot = true;
-		else if (str[i] != 'f')
-			return false;
+		} else if (str[i] == 'f') {
+			if (hasIndicator || str[i + 1])
+				return false;
+			hasIndicator = true;
+		} else return false;
 	}
-	return hasDigits && hasDot;
+	return hasDigits && hasDot && hasIndicator;
 }
 
 bool isDouble(std::string str) {
@@ -61,16 +65,27 @@ bool isDouble(std::string str) {
 		i++;
 	if (i == str.size())
 		return false;
-	bool hasDot = false;
 	bool hasDigits = false;
+	bool hasDot = false;
 	for (; i < str.size(); i++) {
 		if (std::isdigit(str[i]))
 			hasDigits = true;
-		else if (str[i] == '.' && !hasDot)
+		else if (str[i] == '.') {
+			if (hasDot || i == 0 || !isdigit(str[i + 1]))
+				return false;
 			hasDot = true;
-		else return false;
+		} else return false;
 	}
 	return hasDigits && hasDot;
+}
+
+bool checkLength(std::string str) {
+	int len = 0;
+
+	for (std::string::iterator it = str.begin(); it != str.end(); it++)
+		if (isdigit(*it) || *it == '.')
+			len++;
+	return len < 11;
 }
 
 void printChar(std::string str) {
@@ -78,43 +93,59 @@ void printChar(std::string str) {
 
 	std::cout << "char: '" << c << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << std::endl;
 }
 
 void printInt(std::string str) {
-	int value = std::atoi(str.c_str());
+	long value = std::strtol(str.c_str(), NULL, 10);
 
+	if (value < INT_MIN || value > INT_MAX) {
+		std::cerr << RED "Invalid number" RESET << std::endl;
+		return;
+	}
 	if (value < 32 || value > 126)
-		std::cout << "char: not displayable" << std::endl;
+		std::cout << "char: non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
+	std::cout << std::fixed << std::setprecision(1);
 	std::cout << "int: " << value << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
+	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
 void printFloat(std::string str) {
+	if (!checkLength(str)) {
+		std::cerr << RED "Invalid number" RESET << std::endl;
+		return;
+	}
 	float value = std::strtof(str.c_str(), NULL);
-
 	if (static_cast<int>(value) < 32 || static_cast<int>(value) > 126)
-		std::cout << "char: not displayable" << std::endl;
+		std::cout << "char: non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << value << "f" << std::endl;
+	if (value == floor(value))
+		std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << value << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(value) << std::endl;
 }
 
 void printDouble(std::string str) {
-	double value = std::atof(str.c_str());
-
+	if (!checkLength(str)) {
+		std::cerr << RED "Invalid number" RESET << std::endl;
+		return;
+	}
+	double value = std::strtod(str.c_str(), NULL);
 	if (static_cast<int>(value) < 32 || static_cast<int>(value) > 126)
-		std::cout << "char: not displayable" << std::endl;
+		std::cout << "char: non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(value) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
+	if (value == floor(value))
+		std::cout << std::fixed << std::setprecision(1);
+	std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
 	std::cout << "double: " << value << std::endl;
 }
 
@@ -154,6 +185,6 @@ void *ScalarConverter::convert(std::string str) {
 	else if (isDouble(str))
 		printDouble(str);
 	else
-		std::cerr << RED "Invalid type" RESET << std::endl;
+		std::cerr << RED "Unknown type" RESET << std::endl;
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 01:22:18 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/05 22:25:43 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/06 11:38:45 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define SCALAR_CONVERTER_HPP
 # include "../includes/colors.h"
 # include <iostream>
+# include <cstdlib>
+# include <iomanip>
+# include <climits>
+# include <math.h>
 
 class ScalarConverter {
 	public:
