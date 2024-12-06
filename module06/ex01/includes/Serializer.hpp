@@ -6,13 +6,14 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 23:32:38 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/05 23:48:52 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/06 09:59:32 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SERIALIZER_HPP
 # define SERIALIZER_HPP
 # include <iostream>
+# include <stdint.h>
 
 typedef struct s_Data {
 	std::string str;
