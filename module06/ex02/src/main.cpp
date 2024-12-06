@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 00:00:35 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/06 02:16:51 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/06 10:12:45 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../includes/B.hpp"
 #include "../includes/C.hpp"
 #include <iostream>
+#include <stdlib.h>
 
 Base *generate() {
 	srand(time(0));
@@ -45,15 +46,15 @@ void identify(Base &p) {
 	try {
 		(void)dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
-	} catch (std::bad_cast &) {
+	} catch (std::exception &) {
 		try {
 			(void)dynamic_cast<B&>(p);
 			std::cout << "B" << std::endl;
-		} catch (std::bad_cast &) {
+		} catch (std::exception &) {
 			try {
 				(void)dynamic_cast<C&>(p);
 				std::cout << "C" << std::endl;
-			} catch (std::bad_cast &) {
+			} catch (std::exception &) {
 				std::cout << "Unknown type" << std::endl;
 			}
 		}
