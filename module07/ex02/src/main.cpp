@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 15:45:08 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/07 16:18:28 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/09 08:07:57 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,16 @@ int main() {
 		std::cout << "otherTab["<< i <<"]: " << otherTab[i] << std::endl;
 	for (unsigned int i = 0; i < tab.size(); i++)
 		std::cout << "tab["<< i <<"]: " << tab[i] << std::endl;
+	std::cout << "--- Error handling ---" << std::endl;
+	try {
+		tab[-1] = 0;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
+	try {
+		tab[5] = 0;
+	} catch (std::exception &e) {
+		std::cerr << e.what() << std::endl;
+	}
 	return 0;
 }
