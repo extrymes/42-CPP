@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 06:26:30 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/11 10:25:16 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/12 06:12:46 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@
 
 typedef std::map<long long, float> dataMap;
 
-int readDataFile(dataMap &data);
-int readInputFile(dataMap &data, std::string filename);
+void readDataFile(dataMap &data);
+void readInputFile(dataMap &data, std::string filename);
 std::tm convertToDate(std::string str);
 long long convertToMilliseconds(std::string str);
 bool checkDate(std::tm &date);
 bool isLeapYear(int year);
-bool checkValueLimit(std::string str);
+float convertToFloat(std::string str);

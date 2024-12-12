@@ -6,16 +6,16 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 06:26:38 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/11 10:57:21 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/12 10:21:50 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/BitcoinExchange.hpp"
 
-int readDataFile(dataMap &data) {
+void readDataFile(dataMap &data) {
 	std::ifstream file("data.csv");
 	if (!file.is_open())
-		throw std::runtime_error("Cannot open data file");
+		throw std::runtime_error("cannot open data file");
 	std::string line;
 	std::getline(file, line);
 	while (std::getline(file, line)) {
@@ -26,26 +26,25 @@ int readDataFile(dataMap &data) {
 			float value = std::strtof(valueStr.c_str(), NULL);
 			data.insert(std::pair<long long, float>(ms, value));
 		} catch (std::exception &e) {
-			std::cerr << RED << e.what() << RESET << std::endl;
+			std::cerr << RED "Error: " << e.what() << RESET << std::endl;
 		}
 	}
 	file.close();
-	return 1;
 }
 
-int readInputFile(dataMap &data, std::string filename) {
+void readInputFile(dataMap &data, std::string filename) {
 	std::ifstream file(filename.c_str());
 	if (!file.is_open())
-		throw std::runtime_error("Cannot open input file");
+		throw std::runtime_error("cannot open input file");
 	std::string line;
 	std::getline(file, line);
 	if (line != "date | value")
-		throw std::runtime_error("This file is not valid");
+		throw std::runtime_error("the file header is not valid");
 	while (std::getline(file, line)) {
 		if (line.empty())
 			continue;
 		if (line.length() < 14 || line[10] != ' ' || line[11] != '|' || line[12] != ' ') {
-			std::cout << "Error: bad input => " << line << std::endl;
+			std::cout << RED "Error: bad input => " << line << RESET << std::endl;
 			continue;
 		}
 		std::string dateStr = line.substr(0, 10);
@@ -54,17 +53,9 @@ int readInputFile(dataMap &data, std::string filename) {
 		float rate;
 		try {
 			ms = convertToMilliseconds(dateStr);
-			rate = std::strtof(rateStr.c_str(), NULL);
-		} catch (std::exception &) {
-			std::cout << "Error: bad input => " << line << std::endl;
-			continue;
-		}
-		if (!checkValueLimit(rateStr)) {
-			std::cout << "Error: too large a number" << std::endl;
-			continue;
-		}
-		if (rate < 0) {
-			std::cout << "Error: not a positive number" << std::endl;
+			rate = convertToFloat(rateStr);
+		} catch (std::exception &e) {
+			std::cout << RED "Error: " << e.what() << " => " << line << RESET << std::endl;
 			continue;
 		}
 		dataMap::iterator found = data.find(ms);
@@ -75,7 +66,6 @@ int readInputFile(dataMap &data, std::string filename) {
 		std::cout << dateStr << " => " << rateStr << " = " << found->second * rate << std::endl;
 	}
 	file.close();
-	return 1;
 }
 
 std::tm convertToDate(std::string str) {
@@ -84,9 +74,9 @@ std::tm convertToDate(std::string str) {
 	char dash;
 	ss >> date.tm_year >> dash >> date.tm_mon >> dash >> date.tm_mday;
 	if (ss.fail())
-		throw std::runtime_error("Failed to parse date");
+		throw std::runtime_error("failed to parse date");
 	if (!checkDate(date))
-		throw std::runtime_error("Invalid date");
+		throw std::runtime_error("invalid date");
 	return date;
 }
 
@@ -94,7 +84,7 @@ long long convertToMilliseconds(std::string str) {
 	std::tm date = convertToDate(str);
 	std::time_t time = std::mktime(&date);
 	if (time == -1)
-		throw std::runtime_error("Failed to convert to time_t");
+		throw std::runtime_error("failed to convert to time_t");
 	long long ms = static_cast<long long>(time) * 1000;
 	return ms;
 }
@@ -119,11 +109,15 @@ bool isLeapYear(int year) {
 	return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
 }
 
-bool checkValueLimit(std::string str) {
-	try {
-		long long value = std::strtol(str.c_str(), NULL, 10);
-		return value <= 1000;
-	} catch (std::exception &) {
-		return false;
-	}
+float convertToFloat(std::string str) {
+	float value;
+	char *end;
+	value = std::strtof(str.c_str(), &end);
+	if (end != str.c_str() + str.length())
+		throw std::runtime_error("invalid value");
+	if (value < 0)
+		throw std::runtime_error("not a positive number");
+	if (value > 1000)
+		throw std::runtime_error("too large a number");
+	return value;
 }

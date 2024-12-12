@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 06:26:40 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/11 10:10:48 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/12 06:12:04 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int ac, char **av) {
 		readDataFile(data);
 		readInputFile(data, av[1]);
 	} catch (std::exception &e) {
-		std::cerr << RED << e.what() << RESET << std::endl;
+		std::cerr << RED << "Error: " << e.what() << RESET << std::endl;
 		return 1;
 	}
 	return 0;
