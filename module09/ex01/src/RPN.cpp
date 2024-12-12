@@ -6,13 +6,15 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:00:48 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/11 17:44:55 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/11 19:37:20 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RPN.hpp"
 
 void parseExpression(stack &st, std::string exp) {
+	if (exp.empty())
+		throw std::runtime_error("Invalid expression");
 	std::string::iterator it;
 	int idx = 0;
 	for (it = exp.begin(); it != exp.end(); it++) {

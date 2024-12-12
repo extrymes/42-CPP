@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 11:00:32 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/11 16:51:35 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/12 05:25:00 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(int ac, char **av) {
 	if (ac != 2) {
-		std::cout << RED "Usage:\n\t./RPN <expression>" RESET << std::endl;
+		std::cerr << RED "Usage:\n\t./RPN <expression>" RESET << std::endl;
 		return 1;
 	}
 	stack st;
