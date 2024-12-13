@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 06:26:38 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/12 10:21:50 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/13 15:57:32 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void readInputFile(dataMap &data, std::string filename) {
 	std::string line;
 	std::getline(file, line);
 	if (line != "date | value")
-		throw std::runtime_error("the file header is not valid");
+		std::cout << RED "Error: bad header => " << line << RESET << std::endl;
 	while (std::getline(file, line)) {
 		if (line.empty())
 			continue;
