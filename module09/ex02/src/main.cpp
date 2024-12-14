@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 17:52:45 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/13 11:15:02 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/13 19:45:10 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int main(int ac, char **av) {
 		std::cerr << RED "You must pass a positive integer sequence as argument" << std::endl;
 		return 1;
 	}
-	std::vector<int> vec;
-	std::deque<int> deq;
+	vector vec;
+	deque deq;
 	try {
 		fillContainers(av, ac, vec, deq);
 		std::cout << "Before:\t";

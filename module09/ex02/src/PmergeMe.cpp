@@ -6,7 +6,7 @@
 /*   By: sabras <sabras@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 17:52:57 by sabras            #+#    #+#             */
-/*   Updated: 2024/12/13 11:41:14 by sabras           ###   ########.fr       */
+/*   Updated: 2024/12/14 02:39:04 by sabras           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,10 +110,10 @@ int binarySearch(vector &vec, int target) {
 	int low = 0, high = vec.size() - 1;
 	int max = high - low + 1;
 	vector jacobsthal = getJacobsthalV(max);
-	int k = jacobsthal.size() - 1;
+	int i = jacobsthal.size() - 1;
 	// Jacobsthal Binary Search
 	while (low <= high) {
-		int mid = low + jacobsthal[k];
+		int mid = low + jacobsthal[i];
 		if (mid > high)
 			mid = high;
 		if (vec[mid] == target)
@@ -122,8 +122,8 @@ int binarySearch(vector &vec, int target) {
 			low = mid + 1;
 		else
 			high = mid - 1;
-		if (k > 0)
-			k--;
+		if (i > 0)
+			i--;
 	}
 	return low;
 }
@@ -132,10 +132,10 @@ int binarySearch(deque &deq, int target) {
 	int low = 0, high = deq.size() - 1;
 	int max = high - low + 1;
 	deque jacobsthal = getJacobsthalD(max);
-	int k = jacobsthal.size() - 1;
+	int i = jacobsthal.size() - 1;
 	// Jacobsthal Binary Search
 	while (low <= high) {
-		int mid = low + jacobsthal[k];
+		int mid = low + jacobsthal[i];
 		if (mid > high)
 			mid = high;
 		if (deq[mid] == target)
@@ -144,8 +144,8 @@ int binarySearch(deque &deq, int target) {
 			low = mid + 1;
 		else
 			high = mid - 1;
-		if (k > 0)
-			k--;
+		if (i > 0)
+			i--;
 	}
 	return low;
 }
